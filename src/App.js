@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { findByLabelText } from "@testing-library/react";
+import React from "react";
+import styled from "styled-components";
+import Navbar from "./components/Navbar";
+import Post from "./components/Post";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Navbar />
+      <div>My Blog</div>
+      <PostContainer>
+        <Post />
+        <Post />
+      </PostContainer>
+    </Container>
   );
-}
+};
+
+const Container = styled.div`
+  height: 100vh;
+  width: 100vw;
+  background-color: limegreen;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+`;
+
+const PostContainer = styled.div`
+  width: 100vw;
+  flex-wrap: wrap;
+`;
 
 export default App;
