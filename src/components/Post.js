@@ -1,11 +1,19 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import moment from "moment";
+import userEvent from '@testing-library/user-event';
 
-const Post = () => {
-    return ( <Container>
-        <h1>Post</h1>;
+const Post = ({ post, user }) => {
+    return ( 
+    <Container>
+        <h1>{post.title}</h1>
+        <p>{post.cotent}</p>
+        <p>Written by {user.name}</p>
+        {/* formatting date of post */}
+        <p>{moment.utc(post.createdAt).fromNow()}</p>
+
     </Container> 
-    )
+    );
 };
 
 const Container = styled.div`
